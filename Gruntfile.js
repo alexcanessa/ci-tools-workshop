@@ -2,7 +2,7 @@
 
 module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-eslint');
-    grunt.loadNpmTasks('grunt-scss-lint');
+    grunt.loadNpmTasks('grunt-sass-lint');
 
     grunt.initConfig({
         eslint: {
@@ -14,15 +14,15 @@ module.exports = function(grunt) {
                 'src/**/*.js'
             ]
         },
-        scsslint: {
-            allFiles: [
+        sasslint: {
+            target: [
                 './src/**/*.scss'
             ],
             options: {
-                config: '.scss-lint.yml'
+                configFile: '.sass-lint.yml'
             }
         }
     });
 
-    grunt.registerTask('test', ['scsslint', 'eslint']);
+    grunt.registerTask('test', ['sasslint', 'eslint']);
 };
