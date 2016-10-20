@@ -16,3 +16,4 @@ Workshop repo, created to help the explanation of several code sessions in a CI 
 The slides for each section are in the `./slides` folder, starting with the session number.
 
 - [Starting from zero](./slides/01.starting-from-zero.md)
+- [Unit testing](./slides/02.unit-testing.md)
