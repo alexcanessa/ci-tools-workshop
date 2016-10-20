@@ -9,14 +9,14 @@ describe('Utils', () => {
     });
 
     describe('Sum', () => {
-        it('Should return the sum of all arguments', () => {
-            assert.equal(utils.sum(1, 2), 3, 'With two positive ints');
-            assert.equal(utils.sum(1, 2, 3, 4), 10, 'With four positive ints');
+        it('Should return the sum of two the arguments', () => {
+            assert.equal(utils.sum(1, 2), 3, 'Two positive ints');
+            assert.equal(utils.sum(-1, 2), 1, '1 positive one negative');
         });
 
-        it('Should return 0', () => {
-            assert.equal(utils.sum(), 0, 'With no arguments');
-            assert.equal(utils.sum('abc'), 0, 'When a string has been passed');
-        })
-    })
+        it('Should return NaN', () => {
+            assert.equal(utils.sum(1, 'a'), 'NaN', 'If a string passed');
+        });
+    });
+
 })

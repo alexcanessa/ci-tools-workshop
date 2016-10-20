@@ -24,16 +24,6 @@ module.exports = function(grunt) {
                 configFile: '.sass-lint.yml'
             }
         },
-        babel: {
-            options: {
-                sourceMap: true
-            },
-            dist: {
-                files: {
-                    'dist/scripts/app.js': 'src/**.js'
-                }
-            }
-        },
         mochaTest: {
             test: {
                 options: {
@@ -41,7 +31,7 @@ module.exports = function(grunt) {
                     captureFile: 'test/reports/results.txt',
                     require: 'babel-register'
                 },
-                src: ['test/**/*.js']
+                src: ['test/**/*.test.js']
             }
         }
     });
