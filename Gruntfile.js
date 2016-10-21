@@ -2,8 +2,7 @@
 
 module.exports = function(grunt) {
     require('jit-grunt')(grunt, {
-        sasslint: 'grunt-sass-lint',
-        mochaTest: 'grunt-mocha-test'
+        sasslint: 'grunt-sass-lint'
     });
 
     grunt.initConfig({
@@ -24,19 +23,17 @@ module.exports = function(grunt) {
                 configFile: '.sass-lint.yml'
             }
         },
-        mochaTest: {
-            test: {
+        mocha_istanbul: {
+            coverage: {
+                src: ['test/**/*.test.js'],
                 options: {
-                    reporter: 'spec',
-                    captureFile: 'test/reports/results.txt',
-                    require: 'babel-register'
-                },
-                src: ['test/**/*.test.js']
+                    mochaOptions: ['--compilers', 'js:babel-register']
+                }
             }
         }
     });
 
     grunt.registerTask('scripts', ['babel']);
-    grunt.registerTask('test', ['sasslint', 'eslint', 'mochaTest']);
+    grunt.registerTask('test', ['sasslint', 'eslint', 'mocha_istanbul']);
     grunt.registerTask('default', ['test']);
 };
