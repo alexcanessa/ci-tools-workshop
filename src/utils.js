@@ -6,12 +6,4 @@ export default class Utils {
 
         return a + b;
     }
-
-    multiply(a, b) {
-        if (isNaN(a) || isNaN(b)) {
-            return 'NaN';
-        }
-
-        return a * b;
-    }
 }
