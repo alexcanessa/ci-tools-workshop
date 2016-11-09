@@ -1,9 +1,18 @@
 export default class Utils {
-    sum(a, b) {
-        if (isNaN(a) || isNaN(b)) {
-            return 'NaN';
+    /**
+     * Given a path, return the filename with the extension
+     *
+     * @param  {String} path
+     *
+     * @return {String}
+     */
+    getFilename(path = '') {
+        if (typeof path !== 'string' || !path.match(/\.\w+$/g)) {
+            return '';
         }
 
-        return a + b;
+        return path
+                .split('/')
+                .pop();
     }
 }

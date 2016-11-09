@@ -18,3 +18,10 @@ The slides for each section are in the `./slides` folder, starting with the sess
 
 - [Starting from zero](./slides/01.starting-from-zero.md)
 - [Unit testing](./slides/02.unit-testing.md)
+- [Integration testing](./slides/03.integration-testing.md)
+
+To run the slides you'll need [reveal-md](https://github.com/webpro/reveal-md) and use:
+
+```shell
+reveal-md slides/ --theme alexcanessa
+```
