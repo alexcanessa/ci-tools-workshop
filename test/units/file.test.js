@@ -7,15 +7,21 @@ describe('File', () => {
 
     beforeEach(() => {
         file = new File();
+
+        fs.writeFileSync('test.txt', 'Hello World', 'utf-8');
     });
 
     describe('Read txt file', () => {
         it('Should return the content of a txt file', () => {
-            fs.writeFileSync('test.txt', 'Hello World', 'utf-8');
-
-            // assert.equal(file.readTXT('test'), 'Hello World');
-
-            fs.unlinkSync('test.txt');
+            assert.equal(file.readTXT('test'), 'Hello World');
         });
+
+        it('Should not append a second .txt when present in the filename', () => {
+            assert.equal(file.readTXT('test.txt'), 'Hello World');
+        });
+    });
+
+    afterEach(() => {
+        fs.unlinkSync('test.txt');
     });
 });

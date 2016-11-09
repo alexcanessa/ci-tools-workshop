@@ -6,20 +6,23 @@ import Utils from '../../src/utils';
 describe('App', () => {
     let file;
     let utils;
+    let filePath;
+    let filename;
 
     beforeEach(() => {
         file = new File();
         utils = new Utils();
+        filePath = '/test/to/ciao.txt';
+        filename = utils.getFilename(filePath);
+
+        fs.writeFileSync(filename, 'Hello World')
     });
 
     it('Should get the txt content from a path', () => {
-        const filePath = '/test/to/ciao.txt';
-        const filename = utils.getFilename(filePath);
+        assert.equal(file.readTXT(filename), 'Hello World');
+    });
 
-        fs.writeFileSync(filename, 'Hello World')
-
-        // assert.equal(file.readTXT(filename), 'Hello World');
-
+    afterEach(() => {
         fs.unlinkSync(filename);
     });
 })

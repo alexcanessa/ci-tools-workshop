@@ -7,7 +7,7 @@ export default class File {
      * @param  {String} filename
      * @return {String}
      */
-    readTXT(filename = '') {
-        return fs.readFileSync(`${filename}.txt`);
+    readTXT(filename) {
+        return fs.readFileSync(`${filename.replace(/\.txt$/, '')}.txt`, 'utf-8');
     }
 }
