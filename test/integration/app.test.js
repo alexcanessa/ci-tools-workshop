@@ -1,23 +1,25 @@
 import { assert } from 'chai';
-import Database from '../../src/database';
+import fs from 'fs';
+import File from '../../src/file';
 import Utils from '../../src/utils';
 
 describe('App', () => {
-    let db;
+    let file;
     let utils;
 
     beforeEach(() => {
-        db = new Database({
-            '/hello.js': 'hello',
-            '/ciao.js': 'ciao',
-            '/hola.js': 'hola'
-        });
+        file = new File();
         utils = new Utils();
     });
 
-    it('Should get a filename from a path and read the content from the DB', () => {
-        let filename = utils.getFilename('/root/path/to/ciao.js');
+    it('Should get the txt content from a path', () => {
+        const filePath = '/test/to/ciao.txt';
+        const filename = utils.getFilename(filePath);
 
-        // assert.equal(db.read(filename), 'ciao'); <-- Failing here!!
+        fs.writeFileSync(filename, 'Hello World')
+
+        // assert.equal(file.readTXT(filename), 'Hello World');
+
+        fs.unlinkSync(filename);
     });
 })

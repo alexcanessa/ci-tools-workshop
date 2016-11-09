@@ -26,5 +26,4 @@ describe('Utils', () => {
             assert.equal(utils.getFilename('/root/dir/'), '', 'Folder path given');
         });
     });
-
 });
